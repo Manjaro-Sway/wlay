@@ -1,8 +1,9 @@
 # Maintainer: Cedric Girard <girard.cedric@gmail.com>
+# Maintainer: Jonas Strassel <info@jonas-strassel.de>
 
-pkgname=wlay-git
-pkgver=r21.7018252
-pkgrel=2
+pkgname=wlay
+pkgver=0.0.0
+pkgrel=1
 pkgdesc="Graphical output management for Wayland"
 
 arch=('i686' 'x86_64')
@@ -11,17 +12,13 @@ license=('MIT')
 makedepends=('git' 'cmake' 'extra-cmake-modules' 'wayland' 'glfw-wayland' 'libepoxy')
 depends=('wayland' 'glfw-wayland' 'libepoxy')
 provides=('wlay')
-conflicts=('wlay')
-source=('wlay::git+https://github.com/atx/wlay.git')
-sha256sums=('SKIP')
+conflicts=('wlay' 'wlay-git')
 
-pkgver() {
-  cd "$srcdir"/wlay
-  ( set -o pipefail
-    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-  )
-}
+_commit='1e316ca92d38856c517af4a0a7d88c8589bd2131'
+source=("git+${url}.git#commit=${_commit}")
+sha512sums=(
+	'SKIP'
+)
 
 prepare(){
   cd "$srcdir"/wlay
