@@ -3,10 +3,10 @@
 
 pkgname=wlay
 pkgver=0.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Graphical output management for Wayland"
 
-arch=('i686' 'x86_64')
+arch=('aarch64' 'x86_64')
 url="https://github.com/atx/wlay"
 license=('MIT')
 makedepends=('git' 'cmake' 'extra-cmake-modules' 'wayland' 'glfw-wayland' 'libepoxy')
